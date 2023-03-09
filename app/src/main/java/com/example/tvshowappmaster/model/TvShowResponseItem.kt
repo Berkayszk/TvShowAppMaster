@@ -1,5 +1,9 @@
 package com.example.tvshowappmaster.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class TvShowResponseItem(
     val _links: Links,
     val averageRuntime: Int,
@@ -23,4 +27,4 @@ data class TvShowResponseItem(
     val url: String,
     val webChannel: WebChannel,
     val weight: Int
-)
+) : Parcelable

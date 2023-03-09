@@ -1,5 +1,9 @@
 package com.example.tvshowappmaster.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class PeopleResponseItem(
     val _links: LinksX,
     val birthday: String,
@@ -11,4 +15,4 @@ data class PeopleResponseItem(
     val name: String,
     val updated: Int,
     val url: String
-)
+) : Parcelable
