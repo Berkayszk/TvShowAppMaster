@@ -27,5 +27,17 @@
         <argument
             android:name="peopleshow"
             app:argType="com.example.tvshowappmaster.model.PeopleResponseItem" />
+        <action
+            android:id="@+id/action_tvShowDetailsFragment_to_tvShowWebView"
+            app:destination="@id/tvShowWebView" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvShowWebView"
+        android:name="com.example.tvshowappmaster.view.TvShowWebView"
+        android:label="fragment_tv_show_web_view"
+        tools:layout="@layout/fragment_tv_show_web_view" >
+        <action
+            android:id="@+id/action_tvShowWebView_to_tvShowDetailsFragment"
+            app:destination="@id/tvShowDetailsFragment" />
     </fragment>
 </navigation>
