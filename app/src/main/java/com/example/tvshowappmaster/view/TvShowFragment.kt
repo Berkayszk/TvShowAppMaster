@@ -8,16 +8,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tvshowappmaster.R
+import com.example.tvshowappmaster.adapter.PeopleAdapter
 import com.example.tvshowappmaster.adapter.TvShowAdapter
 import com.example.tvshowappmaster.databinding.FragmentTvShowBinding
 import com.example.tvshowappmaster.viewmodel.TvShowViewModel
+import javax.inject.Inject
 
-class TvShowFragment : Fragment(R.layout.fragment_tv_show) {
+class TvShowFragment @Inject constructor(
+    private var tvShowAdapter : TvShowAdapter,
+    private var peopleAdapter : PeopleAdapter
+) : Fragment(R.layout.fragment_tv_show) {
 
     private var _binding : FragmentTvShowBinding?=null
     private val binding get() = _binding!!
-    private lateinit var tvShowAdapter : TvShowAdapter
     private val viewModel : TvShowViewModel by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +49,10 @@ class TvShowFragment : Fragment(R.layout.fragment_tv_show) {
             adapter = tvShowAdapter
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             setHasFixedSize(true)
+        }
+        binding.recyclerViewPeople.apply {
+            adapter = peopleAdapter
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         }
         viewModel.tvShowResponse.observe(requireActivity(), {response->
             tvShowAdapter.tvshow = response

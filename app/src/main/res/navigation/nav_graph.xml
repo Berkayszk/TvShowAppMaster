@@ -39,5 +39,8 @@
         <action
             android:id="@+id/action_tvShowWebView_to_tvShowDetailsFragment"
             app:destination="@id/tvShowDetailsFragment" />
+        <argument
+            android:name="tvshow"
+            app:argType="com.example.tvshowappmaster.model.TvShowResponseItem" />
     </fragment>
 </navigation>
